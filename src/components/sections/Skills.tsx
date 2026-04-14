@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import SectionHeading from '../SectionHeading';
 import { 
-  SiReact, SiJavascript, SiTailwindcss, SiHtml5, SiCss3, 
+  SiReact, SiJavascript, SiTypescript, SiTailwindcss, SiHtml5, SiCss3, 
   SiBootstrap, SiGit, SiGithub, SiPhp, SiMysql,
   SiAdobephotoshop, SiCanva,
   SiMongodb,
@@ -24,6 +24,7 @@ const skills = [
   { name: 'ReactJS', percentage: 90, color: 'from-cyan-400 to-cyan-600' },
   { name: 'Node.js', percentage: 80, color: 'from-lime-500 to-green-700' },
   { name: 'JavaScript', percentage: 85, color: 'from-yellow-400 to-yellow-600' },
+  { name: 'TypeScript', percentage: 82, color: 'from-blue-500 to-sky-600' },
   { name: 'Tailwind CSS', percentage: 95, color: 'from-teal-400 to-teal-600' },
   { name: 'HTML/CSS', percentage: 90, color: 'from-orange-400 to-orange-600' },
   { name: 'PHP', percentage: 75, color: 'from-indigo-400 to-indigo-600' },
@@ -36,6 +37,7 @@ const technologies = [
   { icon: SiExpress, name: 'Express.js', color: '#6B7280' },
   { icon: SiMongodb, name: 'MongoDB', color: '#47A248' },
   { icon: SiJavascript, name: 'JavaScript', color: '#F7DF1E' },
+  { icon: SiTypescript, name: 'TypeScript', color: '#3178C6' },
   { icon: SiHtml5, name: 'HTML5', color: '#E34F26' },
   { icon: SiCss3, name: 'CSS3', color: '#1572B6' },
   { icon: SiPhp, name: 'PHP', color: '#777BB4' },
