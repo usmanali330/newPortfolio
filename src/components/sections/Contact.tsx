@@ -15,11 +15,11 @@ const Contact = () => {
     <section id="contact" className="section-padding relative">
       <div className="section-container">
         <SectionHeading 
-          title="Contact Me" 
-          subtitle="Feel free to reach out through any of these channels!"
+          title="Ready to Start?" 
+          subtitle="Have a web app, Flutter app, dashboard, API integration, bug fix, or full project in mind? Send the details and I will respond with the next steps."
         />
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto">
           {contactInfo.map((info, index) => (
             <motion.a
               key={info.label}
@@ -31,10 +31,10 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5, scale: 1.02 }}
-              className="glass-card rounded-2xl p-6 gradient-border flex flex-col items-center text-center group cursor-pointer"
+              className="surface-card p-5 sm:p-6 gradient-border flex flex-col items-center text-center group cursor-pointer"
             >
-              <div className="p-4 rounded-xl bg-primary/10 group-hover:bg-primary/20 group-hover:glow-effect transition-all duration-300 mb-4">
-                <info.icon className="w-8 h-8 text-primary" />
+              <div className="icon-chip group-hover:bg-primary/20 group-hover:glow-effect mb-4 h-14 w-14">
+                <info.icon className="w-7 h-7" />
               </div>
               <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
               <p className="font-medium text-foreground group-hover:text-primary transition-colors text-sm break-all">

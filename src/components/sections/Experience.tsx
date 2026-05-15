@@ -5,18 +5,18 @@ import { FiCheck, FiCode, FiLayers, FiSmartphone, FiZap, FiUsers } from 'react-i
 const experiences = [
   {
     icon: FiCode,
-    title: 'MERN Stack Development',
-    description: 'Building full-stack web applications using MongoDB, Express.js, ReactJS, and Node.js with clean and scalable architecture.',
+    title: '3+ Years Full Stack Development',
+    description: 'Building full-stack applications with React.js, Node.js, Express.js, MongoDB, REST APIs, and scalable project structure.',
   },
   {
     icon: FiLayers,
-    title: 'Frontend Architecture',
-    description: 'Creating reusable, modular React components and maintainable UI systems for scalable applications.',
+    title: 'Client-Focused Web Solutions',
+    description: 'Creating dashboards, authentication systems, responsive websites, and business workflows designed around client goals.',
   },
   {
     icon: FiSmartphone,
-    title: 'Responsive Design',
-    description: 'Ensuring seamless user experience across all devices with mobile-first design approach.',
+    title: 'Flutter Mobile App Development',
+    description: 'Developing Android and cross-platform apps with Firebase, APIs, custom UI, optimization, and bug fixing.',
   },
   {
     icon: FiZap,
@@ -25,26 +25,24 @@ const experiences = [
   },
   {
     icon: FiUsers,
-    title: 'Team Collaboration',
-    description: 'Working effectively with teams using Git, GitHub, and agile methodologies.',
+    title: 'Freelance Client Experience',
+    description: 'Supporting Fiverr and Upwork-style projects with clear communication, maintenance, deployment help, and long-term updates.',
   },
 ];
 
 const highlights = [
-  'Hands-on experience with the MERN stack for full-stack web application development',
-  'Proficient in ReactJS ecosystem and modern JavaScript',
-  'Knowledge of Node.js, Express.js, and MongoDB fundamentals',
-  'Strong understanding of UI/UX principles',
+  'Flutter Developer for Android and cross-platform mobile apps',
+  'MERN Stack Developer for full-stack web application development',
+  'React Developer with modern JavaScript and Tailwind CSS experience',
+  'Mobile App Developer with Firebase and API integration skills',
+  'Experience with freelance client work, support, and revisions',
   'Experience with version control (Git/GitHub)',
-  'Ability to translate designs into pixel-perfect code',
-  'Continuous learner and problem solver',
-  'Excellent communication and teamwork skills',
+  'Ability to turn business requirements into working products',
+  'Clean code, responsive design, and scalable app structure',
+  'Strong communication for Fiverr, Upwork, and direct clients',
   'Experience with responsive and mobile-first design',
-  'Familiarity with RESTful APIs and integration',
-  'Knowledge of modern CSS frameworks like Tailwind CSS and Bootstrap',
-  'Hands-on experience with component libraries and design systems',
-  'Experience connecting frontend applications with backend services and databases',
-  'Ability to optimize applications for performance and scalability',
+  'REST API integration and backend development',
+  'Deployment assistance, maintenance services, and bug fixing',
 ];
 
 
@@ -68,8 +66,8 @@ const Experience = () => {
     <section id="experience" className="section-padding relative">
       <div className="section-container">
         <SectionHeading 
-          title="Experience Highlights" 
-          subtitle="What I bring to the table"
+          title="Freelance Experience & Strengths" 
+          subtitle="What I bring to client projects, startup products, and development teams"
         />
         
         <div className="grid lg:grid-cols-2 gap-12">

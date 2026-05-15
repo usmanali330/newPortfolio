@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiBriefcase, FiMenu, FiX } from 'react-icons/fi';
 import ThemeToggle from './ThemeToggle';
 
 interface NavbarProps {
@@ -11,8 +11,12 @@ interface NavbarProps {
 const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
+  { name: 'Services', href: '#services' },
+  { name: 'Mobile Apps', href: '#mobile-apps' },
   { name: 'Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
+  { name: 'Freelance', href: '#freelance' },
+  { name: 'Projects', href: '#projects' },
   { name: 'Education', href: '#education' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -42,11 +46,21 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
   }, []);
 
   const handleNavClick = (href: string) => {
+    const id = href.startsWith('#') ? href.substring(1) : href;
+    const scrollToSection = () => {
+      const element = document.getElementById(id) || document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.history.pushState(null, '', `#${id}`);
+      } else {
+        window.location.hash = `#${id}`;
+      }
+    };
+
     setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.requestAnimationFrame(() => {
+      setTimeout(scrollToSection, 50);
+    });
   };
 
   return (
@@ -55,23 +69,26 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'glass-card py-3' : 'py-5 bg-transparent'
+        isScrolled ? 'py-3' : 'py-4 bg-transparent'
       }`}
     >
-      <div className="section-container flex items-center justify-between">
+      <div className="section-container">
+        <div className={`flex items-center justify-between transition-all duration-500 ${
+          isScrolled ? 'glass-card rounded-xl px-3 py-2' : ''
+        }`}>
         {/* Logo */}
         <motion.a
           href="#home"
           onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
-          className="font-display text-2xl font-bold gradient-text"
+          className="font-display text-xl md:text-2xl font-bold gradient-text shrink-0"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Portfolio
+          Usman Ali
         </motion.a>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden xl:flex items-center gap-0.5 rounded-lg bg-background/35 p-1">
           {navLinks.map((link, index) => (
             <motion.a
               key={link.name}
@@ -80,9 +97,9 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 ${
+              className={`relative rounded-md px-3 py-2 text-[13px] font-semibold transition-colors duration-300 ${
                 activeSection === link.href.substring(1)
-                  ? 'text-primary'
+                  ? 'text-primary bg-primary/10'
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >
@@ -90,7 +107,7 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
               {activeSection === link.href.substring(1) && (
                 <motion.div
                   layoutId="activeNav"
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary"
+                  className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary"
                   transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 />
               )}
@@ -100,10 +117,14 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
 
         {/* Theme Toggle & Mobile Menu Button */}
         <div className="flex items-center gap-3">
+          <a href="#contact" onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }} className="hidden sm:inline-flex btn-primary min-h-10 px-4 py-2 text-xs">
+            <FiBriefcase className="h-4 w-4" />
+            Hire Me
+          </a>
           <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
           
           <motion.button
-            className="lg:hidden p-2 rounded-lg glass-card"
+            className="xl:hidden p-3 rounded-lg glass-card"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -116,6 +137,7 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
             )}
           </motion.button>
         </div>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -126,9 +148,9 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden glass-card mt-2 mx-4 rounded-xl"
+            className="xl:hidden overflow-hidden glass-card mt-2 mx-4 rounded-xl max-h-[calc(100vh-96px)] overflow-y-auto"
           >
-            <div className="py-4 px-4 flex flex-col gap-2">
+            <div className="py-4 px-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.name}
@@ -137,7 +159,7 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${
+                  className={`px-4 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
                     activeSection === link.href.substring(1)
                       ? 'bg-primary/10 text-primary'
                       : 'text-muted-foreground hover:bg-muted hover:text-foreground'

@@ -7,22 +7,21 @@ import {
   SiAdobephotoshop, SiCanva,
   SiMongodb,
   SiExpress,
-  SiNodedotjs
+  SiNodedotjs,
+  SiFlutter,
+  SiFirebase
 } from 'react-icons/si';
 import { TbFileSpreadsheet } from 'react-icons/tb';
 import { VscCode } from 'react-icons/vsc';
 import { FiMonitor } from 'react-icons/fi';
-import {
-  containerVariants,
-  itemVariants,
-  scrollSlideInUpVariants,
-} from '@/lib/animations';
 
 const skills = [
   { name: 'MongoDB', percentage: 75, color: 'from-green-500 to-emerald-600' },
   { name: 'Express.js', percentage: 78, color: 'from-slate-500 to-slate-700' },
   { name: 'ReactJS', percentage: 90, color: 'from-cyan-400 to-cyan-600' },
   { name: 'Node.js', percentage: 80, color: 'from-lime-500 to-green-700' },
+  { name: 'Flutter', percentage: 82, color: 'from-sky-400 to-blue-600' },
+  { name: 'Firebase', percentage: 78, color: 'from-amber-400 to-orange-600' },
   { name: 'JavaScript', percentage: 85, color: 'from-yellow-400 to-yellow-600' },
   { name: 'Tailwind CSS', percentage: 95, color: 'from-teal-400 to-teal-600' },
   { name: 'HTML/CSS', percentage: 90, color: 'from-orange-400 to-orange-600' },
@@ -32,6 +31,8 @@ const skills = [
 
 const technologies = [
   { icon: SiReact, name: 'ReactJS', color: '#61DAFB' },
+  { icon: SiFlutter, name: 'Flutter', color: '#02569B' },
+  { icon: SiFirebase, name: 'Firebase', color: '#FFCA28' },
   { icon: SiNodedotjs, name: 'Node.js', color: '#339933' },
   { icon: SiExpress, name: 'Express.js', color: '#6B7280' },
   { icon: SiMongodb, name: 'MongoDB', color: '#47A248' },
@@ -92,7 +93,7 @@ const Skills = () => {
       <div className="section-container">
         <SectionHeading 
           title="Skills & Technologies" 
-          subtitle="My MERN stack expertise and the tools I work with"
+          subtitle="MERN stack, Flutter, Firebase, and production tools I use to build web and mobile apps"
         />
         
         {/* Skill Bars */}
@@ -138,7 +139,7 @@ const Skills = () => {
           className="text-center mb-8"
         >
           <h3 className="text-2xl font-display font-bold gradient-text mb-2">Technologies I Use</h3>
-          <p className="text-muted-foreground">Core MERN stack tools, frontend technologies, and design utilities</p>
+          <p className="text-muted-foreground">Core app development, web development, backend, database, and design utilities</p>
         </motion.div>
         
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">

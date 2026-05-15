@@ -10,8 +10,8 @@ const personalInfo = [
   { icon: FiPhone, label: 'Phone', value: '0370-5040330' },
   { icon: FiMail, label: 'Email', value: 'usmanalishah\n5040@gmail.com' },
   { icon: FiGlobe, label: 'Languages', value: 'Urdu, Pashto, English' },
-  { icon: FiHeart, label: 'Interests', value: 'MERN Stack, UI/UX' },
-  { icon: FiBriefcase, label: 'Experience', value: 'MERN Stack Developer' },
+  { icon: FiHeart, label: 'Interests', value: 'MERN, Flutter, UI/UX' },
+  { icon: FiBriefcase, label: 'Experience', value: '3+ Years' },
 ];
 
 const containerVariants = {
@@ -35,7 +35,7 @@ const About = () => {
       <div className="section-container">
         <SectionHeading 
           title="About Me" 
-          subtitle="Get to know me better"
+          subtitle="Full Stack Web & Flutter App Developer focused on reliable client work"
         />
         
         <div className="grid lg:grid-cols-3 gap-12 items-center">
@@ -79,13 +79,13 @@ const About = () => {
                 Who I Am
               </h3>
               <p className="text-muted-foreground mb-4 leading-relaxed text-sm sm:text-base">
-                I am a passionate MERN Stack Developer and ReactJS Specialist with a strong foundation in modern web technologies. My Bachelor's degree in Computer Science at Bacha Khan University Charsadda is currently in progress for the 2024 - 2028 session.
+                I am Usman Ali, a Full Stack Web & Flutter App Developer with 3+ years of hands-on experience building responsive websites, MERN stack applications, dashboards, APIs, and mobile apps for real business needs.
               </p>
               <p className="text-muted-foreground mb-4 leading-relaxed text-sm sm:text-base">
-                I specialize in building responsive, user-friendly web applications using MongoDB, Express.js, ReactJS, Node.js, Tailwind CSS, and JavaScript. I enjoy working across both frontend and backend to turn complex problems into simple, beautiful, and intuitive digital products.
+                I work with React.js, Node.js, Express.js, MongoDB, Tailwind CSS, Flutter, Firebase, and REST APIs. My focus is on clean UI, secure functionality, fast delivery, and smooth communication for Fiverr buyers, Upwork clients, startup founders, and companies hiring developers.
               </p>
               <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                My goal is to create impactful full-stack digital experiences that make a difference. I'm always eager to learn new technologies, strengthen my MERN stack expertise, and take on challenging projects that push my boundaries.
+                My goal is to help clients launch scalable digital products that are easy to use, easy to maintain, and ready to grow. I can support a project from planning and development to deployment, bug fixing, and long-term improvements.
               </p>
             </div>
           </motion.div>
