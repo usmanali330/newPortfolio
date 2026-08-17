@@ -8,10 +8,10 @@ const personalInfo = [
   { icon: FiUser, label: 'Name', value: 'Usman Ali' },
   { icon: FiMapPin, label: 'Location', value: 'Sardheri, Charsadda, Pakistan' },
   { icon: FiPhone, label: 'Phone', value: '0370-5040330' },
-  { icon: FiMail, label: 'Email', value: 'usmanalishah5040@gmail.com' },
-  { icon: FiExternalLink, label: 'Portfolio', value: 'usmanalideveloper.netlify.app' },
-  { icon: FaLinkedin, label: 'LinkedIn', value: 'usman-ali-software-engineer' },
-  { icon: FaGithub, label: 'GitHub', value: 'usmanali330' },
+  { icon: FiMail, label: 'Email', value: 'usmanalishah5040@gmail.com', href: 'mailto:usmanalishah5040@gmail.com' },
+  { icon: FiExternalLink, label: 'Portfolio', value: 'usmanalideveloper.netlify.app', href: 'https://usmanalideveloper.netlify.app' },
+  { icon: FaLinkedin, label: 'LinkedIn', value: 'usman-ali-software-engineer', href: 'https://www.linkedin.com/in/usman-ali-software-engineer/' },
+  { icon: FaGithub, label: 'GitHub', value: 'usmanali330', href: 'https://github.com/usmanali330' },
   { icon: FiBriefcase, label: 'Experience', value: '4+ Years' },
 ];
 
@@ -109,24 +109,47 @@ const About = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="lg:col-span-3 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4"
+            className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4"
           >
-            {personalInfo.map((info) => (
-              <motion.div
-                key={info.label}
-                variants={itemVariants}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="glass-card rounded-xl p-4 flex flex-col items-center text-center gap-3 group cursor-pointer hover:glow-effect transition-all duration-300"
-              >
-                <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
-                  <info.icon className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground">{info.label}</p>
-                  <p className="text-sm font-medium text-foreground leading-tight">{info.value}</p>
-                </div>
-              </motion.div>
-            ))}
+            {personalInfo.map((info) => {
+              const content = (
+                <>
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
+                    <info.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="min-w-0 w-full">
+                    <p className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wide">{info.label}</p>
+                    <p className="text-sm sm:text-base font-medium text-foreground leading-snug break-all whitespace-normal text-center">
+                      {info.value}
+                    </p>
+                  </div>
+                </>
+              );
+
+              return (
+                <motion.div
+                  key={info.label}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  className="glass-card rounded-2xl p-4 flex flex-col items-center justify-start text-center gap-3 group cursor-pointer hover:glow-effect transition-all duration-300 min-h-[180px]"
+                >
+                  {info.href ? (
+                    <a
+                      href={info.href}
+                      target={info.href.startsWith('http') ? '_blank' : undefined}
+                      rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="flex w-full flex-col items-center gap-3 text-center"
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    <div className="flex w-full flex-col items-center gap-3 text-center">
+                      {content}
+                    </div>
+                  )}
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </div>
