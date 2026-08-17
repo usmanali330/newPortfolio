@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 import SectionHeading from '../SectionHeading';
 import { FiBarChart2, FiCheckCircle, FiCloud, FiShoppingCart, FiTruck, FiUsers } from 'react-icons/fi';
-import { SiAndroid, SiApple, SiFirebase, SiFlutter, SiOpenai } from 'react-icons/si';
+import { SiAndroid, SiApple, SiFirebase, SiFlutter } from 'react-icons/si';
+import { TbBrandOpenai } from 'react-icons/tb';
 
 const appCards = [
   { icon: FiShoppingCart, title: 'E-commerce App', text: 'Product browsing, carts, orders, authentication, and payment-ready flows.' },
   { icon: FiUsers, title: 'Attendance App', text: 'QR attendance, employee tracking, reports, and real-time Firebase sync.' },
   { icon: FiTruck, title: 'Delivery App', text: 'Order tracking, driver screens, status updates, and business dashboards.' },
-  { icon: SiOpenai, title: 'AI App', text: 'AI-powered prompts, image tools, chat workflows, and API integrations.' },
+  { icon: TbBrandOpenai, title: 'AI App', text: 'AI-powered prompts, image tools, chat workflows, and API integrations.' },
   { icon: FiBarChart2, title: 'Business Dashboard App', text: 'Mobile dashboards for sales, staff, operations, and decision making.' },
 ];
 

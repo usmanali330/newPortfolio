@@ -1,31 +1,17 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import path from "path";
 
-// https://vitejs.dev/config/
-export default defineConfig(async ({ mode }) => {
-  const plugins = [react()];
-
-  if (mode === "development") {
-    try {
-      const { componentTagger } = await import("lovable-tagger");
-      plugins.push(componentTagger());
-    } catch {
-      // Allow local development to continue if the optional tagger isn't installed.
-    }
-  }
-
-  return {
-    server: {
-      host: "::",
-      port: 8080,
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    host: "::",
+    port: 8080,
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+      "lucide-react": path.resolve(__dirname, "./src/lib/lucide-react.tsx"),
     },
-    plugins,
-    resolve: {
-      alias: {
-        "@": path.resolve(__dirname, "./src"),
-        "lucide-react": path.resolve(__dirname, "./src/lib/lucide-react.tsx"),
-      },
-    },
-  };
+  },
 });

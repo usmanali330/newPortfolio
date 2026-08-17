@@ -1,137 +1,109 @@
 import { motion } from 'framer-motion';
 import SectionHeading from '../SectionHeading';
-import { FiCheck, FiCode, FiLayers, FiSmartphone, FiZap, FiUsers } from 'react-icons/fi';
+import { FiCheck, FiBriefcase, FiUsers, FiCode, FiBookOpen } from 'react-icons/fi';
 
 const experiences = [
   {
+    role: 'Web & App Developer',
+    company: 'Soft Breeze Software House',
+    period: '2025 – Present',
+    responsibilities: [
+      'Develop and maintain professional web and mobile applications for real-world clients.',
+      'Work across frontend, backend, APIs, databases, debugging, testing, and deployment.',
+      'Collaborate with developers and clients to deliver reliable and scalable software solutions.',
+    ],
     icon: FiCode,
-    title: '3+ Years Full Stack Development',
-    description: 'Building full-stack applications with React.js, Node.js, Express.js, MongoDB, REST APIs, and scalable project structure.',
   },
   {
-    icon: FiLayers,
-    title: 'Client-Focused Web Solutions',
-    description: 'Creating dashboards, authentication systems, responsive websites, and business workflows designed around client goals.',
+    role: 'Web & App Developer',
+    company: 'CISD, Sardheri, Charsadda',
+    period: '2023 – 2026',
+    responsibilities: [
+      'Developed websites, web applications, mobile apps, and business management systems.',
+      'Worked with React.js, Flutter, PHP, JavaScript, MySQL, MongoDB, and REST APIs.',
+      'Built practical software solutions for education, retail, travel, inventory, and business management.',
+    ],
+    icon: FiBriefcase,
   },
   {
-    icon: FiSmartphone,
-    title: 'Flutter Mobile App Development',
-    description: 'Developing Android and cross-platform apps with Firebase, APIs, custom UI, optimization, and bug fixing.',
+    role: 'Senior Instructor',
+    company: 'Shahab Digital College',
+    period: '2025 – Present',
+    responsibilities: [
+      'Teach web development, programming, software development, and practical IT skills.',
+      'Train students through hands-on projects and real-world development workflows.',
+      'Guide students in developing websites, applications, portfolios, and software projects.',
+    ],
+    icon: FiBookOpen,
   },
   {
-    icon: FiZap,
-    title: 'API & Performance Optimization',
-    description: 'Integrating REST APIs and applying best practices for fast loading times, efficient rendering, and smooth interactions.',
-  },
-  {
+    role: 'Freelance Team Leader',
+    company: 'Freelance Development Team',
+    period: '2024 – Present',
+    responsibilities: [
+      'Lead development teams in planning, developing, testing, and delivering client projects.',
+      'Manage task distribution, deadlines, code quality, project requirements, and client communication.',
+      'Coordinate web, mobile, API, database, and custom software development projects.',
+    ],
     icon: FiUsers,
-    title: 'Freelance Client Experience',
-    description: 'Supporting Fiverr and Upwork-style projects with clear communication, maintenance, deployment help, and long-term updates.',
+  },
+  {
+    role: 'Freelance Web & App Developer',
+    company: 'Self-Employed | Remote',
+    period: '2024 – Present',
+    responsibilities: [
+      'Develop custom websites, Flutter applications, dashboards, and business management systems.',
+      'Provide API integration, database development, bug fixing, maintenance, and deployment services.',
+      'Manage client requirements and deliver web and mobile projects through freelance platforms.',
+    ],
+    icon: FiCode,
   },
 ];
-
-const highlights = [
-  'Flutter Developer for Android and cross-platform mobile apps',
-  'MERN Stack Developer for full-stack web application development',
-  'React Developer with modern JavaScript and Tailwind CSS experience',
-  'Mobile App Developer with Firebase and API integration skills',
-  'Experience with freelance client work, support, and revisions',
-  'Experience with version control (Git/GitHub)',
-  'Ability to turn business requirements into working products',
-  'Clean code, responsive design, and scalable app structure',
-  'Strong communication for Fiverr, Upwork, and direct clients',
-  'Experience with responsive and mobile-first design',
-  'REST API integration and backend development',
-  'Deployment assistance, maintenance services, and bug fixing',
-];
-
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
-};
 
 const Experience = () => {
   return (
     <section id="experience" className="section-padding relative">
       <div className="section-container">
-        <SectionHeading 
-          title="Freelance Experience & Strengths" 
-          subtitle="What I bring to client projects, startup products, and development teams"
+        <SectionHeading
+          title="Professional Experience"
+          subtitle="Building digital products, leading freelance work, and mentoring others in practical software development"
         />
-        
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Experience Cards */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-4"
-          >
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={exp.title}
-                variants={itemVariants}
-                whileHover={{ x: 10 }}
-                className="glass-card rounded-xl p-6 flex gap-4 group hover:glow-effect transition-all duration-300"
-              >
-                <div className="p-3 h-fit rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
-                  <exp.icon className="w-6 h-6 text-primary" />
+
+        <div className="space-y-5">
+          {experiences.map((job, index) => (
+            <motion.article
+              key={`${job.role}-${job.company}`}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ delay: index * 0.08 }}
+              className="glass-card rounded-2xl p-5 lg:p-6"
+            >
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                <div className="flex items-start gap-4">
+                  <div className="icon-chip mt-1">
+                    <job.icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-2xl font-bold text-foreground">{job.role}</h3>
+                    <p className="text-primary font-semibold">{job.company}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-display font-semibold text-foreground mb-2">{exp.title}</h3>
-                  <p className="text-sm text-muted-foreground">{exp.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-          
-          {/* Highlights List */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="glass-card rounded-2xl p-8 gradient-border"
-          >
-            <h3 className="text-2xl font-display font-bold gradient-text mb-6">
-              Key Strengths
-            </h3>
-            <ul className="space-y-4">
-              {highlights.map((highlight, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 + 0.2, type: "spring" }}
-                    className="p-1 rounded-full bg-primary/20 mt-0.5"
-                  >
-                    <FiCheck className="w-3 h-3 text-primary" />
-                  </motion.div>
-                  <span className="text-muted-foreground">{highlight}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
+                <span className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs font-semibold text-primary">
+                  {job.period}
+                </span>
+              </div>
+
+              <ul className="mt-5 space-y-3">
+                {job.responsibilities.map((item) => (
+                  <li key={item} className="flex gap-3 text-muted-foreground">
+                    <FiCheck className="mt-1 h-4 w-4 shrink-0 text-primary" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

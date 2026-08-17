@@ -4,19 +4,19 @@ import { FiArrowRight, FiCheckCircle, FiClock, FiMessageCircle, FiShield, FiStar
 import { SiFiverr, SiUpwork } from 'react-icons/si';
 
 const freelanceServices = [
+  'Custom Business Websites',
+  'Full Stack MERN Applications',
+  'Admin Dashboards & Management Systems',
+  'REST API Development & Integration',
+  'Website Maintenance & Bug Fixing',
   'Flutter App Development',
-  'MERN Stack Development',
-  'API Integration',
-  'UI/UX Improvements',
-  'Bug Fixing',
-  'Full Project Development',
 ];
 
 const trustBadges = [
   { icon: FiClock, label: 'Fast Delivery' },
   { icon: FiMessageCircle, label: 'Clear Communication' },
   { icon: FiShield, label: 'Long-term Support' },
-  { icon: FiStar, label: 'Client Satisfaction' },
+  { icon: FiStar, label: 'Client-Focused' },
 ];
 
 const Freelance = () => {
@@ -25,7 +25,7 @@ const Freelance = () => {
       <div className="section-container">
         <SectionHeading
           title="Freelance Platforms"
-          subtitle="Available for freelance projects on Fiverr and Upwork, from focused bug fixes to complete web and mobile application development."
+          subtitle="Available for freelance projects through Fiverr and Upwork, helping startups, businesses, educational institutions, and entrepreneurs build reliable products."
         />
 
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-6 lg:gap-8 items-stretch">
@@ -37,7 +37,7 @@ const Freelance = () => {
           >
             <div>
               <p className="text-sm font-semibold text-primary mb-3">For buyers, founders, and business owners</p>
-              <h3 className="text-2xl md:text-3xl font-display font-bold mb-4 text-balance">Hire a developer who can build, fix, and support your product</h3>
+              <h3 className="text-2xl md:text-3xl font-display font-bold mb-4 text-balance">Hire a developer who can build, fix, and support your product.</h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 I provide practical development services for clients who need dependable execution, clean code, responsive design, and support after delivery.
               </p>
@@ -53,18 +53,20 @@ const Freelance = () => {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href="#contact"
+                href="https://www.fiverr.com/s/jjAzG49"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#1dbf73] px-5 py-3 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card"
               >
                 <SiFiverr className="w-5 h-5" />
-                Fiverr Project
+                Fiverr Profile
               </a>
               <a
                 href="#contact"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#14a800] px-5 py-3 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card"
               >
                 <SiUpwork className="w-5 h-5" />
-                Upwork Project
+                Upwork Inquiry
               </a>
             </div>
           </motion.div>
@@ -79,10 +81,10 @@ const Freelance = () => {
               <SiFiverr className="w-10 h-10 text-[#1dbf73] mb-5" />
               <h3 className="font-display text-xl font-bold mb-3">Fiverr Client Work</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                Clear packages for app screens, bug fixing, MERN features, landing pages, dashboards, and deployment help.
+                Web builds, app development, fixes, maintenance, dashboards, and custom business solutions for diverse clients.
               </p>
-              <a href="#contact" className="inline-flex items-center gap-2 text-primary font-semibold">
-                Discuss Fiverr work <FiArrowRight className="w-4 h-4" />
+              <a href="https://www.fiverr.com/s/jjAzG49" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary font-semibold">
+                Fiverr Profile <FiArrowRight className="w-4 h-4" />
               </a>
             </article>
 
@@ -90,10 +92,10 @@ const Freelance = () => {
               <SiUpwork className="w-10 h-10 text-[#14a800] mb-5" />
               <h3 className="font-display text-xl font-bold mb-3">Upwork Client Work</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                Hourly or milestone-based support for startups, companies, founders, and teams that need a reliable developer.
+                Hourly or milestone-based support for businesses, startups, founders, and teams needing a dependable developer.
               </p>
               <a href="#contact" className="inline-flex items-center gap-2 text-primary font-semibold">
-                Discuss Upwork work <FiArrowRight className="w-4 h-4" />
+                Discuss Project <FiArrowRight className="w-4 h-4" />
               </a>
             </article>
 

@@ -2,20 +2,23 @@ import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { FiArrowRight, FiBriefcase, FiDownload, FiGithub, FiLinkedin, FiMail, FiMessageCircle } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
+import { SiFiverr, SiUpwork } from 'react-icons/si';
 import profileImage from '@/assets/profile-1.jpg';
 
 const socialLinks = [
   { icon: FiGithub, href: 'https://github.com/usmanali330', label: 'GitHub' },
-  { icon: FiLinkedin, href: 'https://www.linkedin.com/in/usman-ali-655600344/', label: 'LinkedIn' },
+  { icon: FiLinkedin, href: 'https://www.linkedin.com/in/usman-ali-software-engineer/', label: 'LinkedIn' },
+  { icon: SiFiverr, href: 'https://www.fiverr.com/s/jjAzG49', label: 'Fiverr' },
+  { icon: SiUpwork, href: '#contact', label: 'Upwork' },
   { icon: FiMail, href: 'mailto:usmanalishah5040@gmail.com', label: 'Email' },
   { icon: FaWhatsapp, href: 'https://wa.me/923705040330', label: 'WhatsApp' },
 ];
 
 const trustStats = [
-  '3+ Years Experience',
+  '4+ Years Experience',
+  'Full Stack Web',
   'Flutter Apps',
-  'MERN Stack',
-  'Client Support',
+  'Business Software',
 ];
 
 const Hero = () => {
@@ -35,7 +38,7 @@ const Hero = () => {
               transition={{ delay: 0.2 }}
               className="mx-auto lg:mx-0 mb-5 inline-flex rounded-full border border-primary/15 bg-primary/10 px-4 py-2 text-xs sm:text-sm font-semibold text-primary"
             >
-              Available for Fiverr, Upwork, startups, and business clients
+              Available for full-time, remote, freelance, and client projects
             </motion.p>
 
             <motion.h1
@@ -57,11 +60,11 @@ const Hero = () => {
                 sequence={[
                   'Full Stack Web & Flutter App Developer',
                   2000,
-                  'MERN Stack Developer',
+                  'Business Software Developer',
                   2000,
-                  'Mobile App Developer',
+                  'React & MERN Specialist',
                   2000,
-                  'React Developer',
+                  'Freelance Technical Leader',
                   2000,
                 ]}
                 wrapper="span"
@@ -77,7 +80,7 @@ const Hero = () => {
               transition={{ delay: 0.5 }}
               className="text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 text-base md:text-lg leading-relaxed text-balance"
             >
-              I build scalable web applications and modern mobile apps for startups, businesses, and clients worldwide.
+              I build modern web applications, Flutter mobile apps, and custom business software solutions for businesses, startups, and organizations.
             </motion.p>
 
             <motion.div
@@ -142,14 +145,14 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="flex gap-3 justify-center lg:justify-start"
+              className="flex gap-3 justify-center lg:justify-start flex-wrap"
             >
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={social.label}
                   href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={social.href.startsWith('http') ? '_blank' : undefined}
+                  rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.8 + index * 0.1 }}
@@ -195,7 +198,7 @@ const Hero = () => {
                 />
               </motion.div>
               <div className="absolute -bottom-4 left-1/2 w-[86%] -translate-x-1/2 glass-card rounded-lg px-4 py-3 text-center">
-                <p className="text-xs text-muted-foreground">Full Stack Web & Flutter App Developer</p>
+                <p className="text-xs text-muted-foreground">Sardheri, Charsadda, Pakistan</p>
                 <p className="text-sm font-semibold text-foreground">Available for client projects</p>
               </div>
             </div>

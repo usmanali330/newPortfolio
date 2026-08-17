@@ -12,10 +12,8 @@ const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
   { name: 'Services', href: '#services' },
-  { name: 'Mobile Apps', href: '#mobile-apps' },
   { name: 'Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
-  { name: 'Freelance', href: '#freelance' },
   { name: 'Projects', href: '#projects' },
   { name: 'Education', href: '#education' },
   { name: 'Contact', href: '#contact' },
@@ -27,31 +25,62 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      
-      // Update active section based on scroll position
-      const sections = navLinks.map(link => link.href.substring(1));
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element && window.scrollY >= element.offsetTop - 100) {
-          setActiveSection(section);
-          break;
-        }
-      }
+    const getClosestSection = () => {
+      const sections = navLinks
+        .map(link => document.getElementById(link.href.substring(1)))
+        .filter((section): section is HTMLElement => Boolean(section));
+
+      if (!sections.length) return;
+
+      const closestSection = sections.reduce((closest, current) => {
+        const currentDistance = Math.abs(current.getBoundingClientRect().top - 120);
+        const closestDistance = Math.abs(closest.getBoundingClientRect().top - 120);
+        return currentDistance < closestDistance ? current : closest;
+      }, sections[0]);
+
+      setActiveSection(closestSection.id);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+      getClosestSection();
+    };
+
+    const handleHashScroll = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (!hash) return;
+
+      const element = document.getElementById(hash);
+      if (!element) return;
+
+      window.requestAnimationFrame(() => {
+        const top = element.getBoundingClientRect().top + window.scrollY - 96;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    };
+
+    handleScroll();
+    handleHashScroll();
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('hashchange', handleHashScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('hashchange', handleHashScroll);
+    };
   }, []);
 
   const handleNavClick = (href: string) => {
     const id = href.startsWith('#') ? href.substring(1) : href;
     const scrollToSection = () => {
-      const element = document.getElementById(id) || document.querySelector(href);
+      const element = document.getElementById(id);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const offset = 96;
+        const top = element.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
         window.history.pushState(null, '', `#${id}`);
+        setActiveSection(id);
       } else {
         window.location.hash = `#${id}`;
       }
@@ -59,7 +88,7 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
 
     setIsMobileMenuOpen(false);
     window.requestAnimationFrame(() => {
-      setTimeout(scrollToSection, 50);
+      setTimeout(scrollToSection, 60);
     });
   };
 

@@ -1,125 +1,193 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import SectionHeading from '../SectionHeading';
-import { FiArrowRight, FiCheck, FiGithub } from 'react-icons/fi';
-import { SiBootstrap, SiCss3, SiHtml5, SiJavascript, SiMongodb, SiMysql, SiNodedotjs, SiPhp, SiReact, SiTailwindcss } from 'react-icons/si';
+import { FiArrowRight, FiCheck, FiExternalLink, FiGithub } from 'react-icons/fi';
+
+const categories = ['All', 'Web', 'Mobile', 'Management Systems', 'Business Software', 'Educational', 'Freelance'];
 
 const projects = [
   {
+    title: 'School Management System',
+    category: 'Management Systems',
+    description: 'Developed a complete school management platform for managing students, teachers, attendance, fees, and administration.',
+    stack: ['Custom Development', 'Management System'],
+    liveUrl: '',
+    githubUrl: '',
+    accent: 'from-orange-500 to-rose-600',
+  },
+  {
+    title: 'Jewelry Management System',
+    category: 'Business Software',
+    description: 'Developed a business management system for managing jewelry products, customers, sales, purchases, and inventory.',
+    stack: ['Business Software', 'Inventory Management'],
+    liveUrl: '',
+    githubUrl: '',
+    accent: 'from-violet-500 to-fuchsia-600',
+  },
+  {
+    title: 'Travel & Tour Management System',
+    category: 'Business Software',
+    description: 'Built a management system for handling tours, customers, bookings, travel records, and business operations.',
+    stack: ['Travel Software', 'Business Management'],
+    liveUrl: '',
+    githubUrl: '',
+    accent: 'from-cyan-500 to-blue-600',
+  },
+  {
+    title: 'Inventory & Store Management System',
+    category: 'Management Systems',
+    description: 'Developed an inventory system for managing products, stock, sales, purchases, and store records.',
+    stack: ['Inventory Management', 'Store Software'],
+    liveUrl: '',
+    githubUrl: '',
+    accent: 'from-emerald-500 to-teal-600',
+  },
+  {
+    title: 'Mobile Shop Management System',
+    category: 'Management Systems',
+    description: 'Built a mobile shop management system for managing mobile products, customers, sales, purchases, and inventory.',
+    stack: ['Business Software', 'Sales Tracking'],
+    liveUrl: '',
+    githubUrl: '',
+    accent: 'from-sky-500 to-indigo-600',
+  },
+  {
+    title: 'Sanitary Store Management System',
+    category: 'Management Systems',
+    description: 'Developed a store management system for managing sanitary products, stock, customers, sales, and transactions.',
+    stack: ['Store Management', 'POS Workflow'],
+    liveUrl: '',
+    githubUrl: '',
+    accent: 'from-pink-500 to-rose-600',
+  },
+  {
+    title: 'Rent Shop Management System',
+    category: 'Business Software',
+    description: 'Built a rental management system for managing rental products, customers, transactions, and rental records.',
+    stack: ['Rental System', 'Business Software'],
+    liveUrl: '',
+    githubUrl: '',
+    accent: 'from-amber-500 to-orange-600',
+  },
+  {
     title: 'Afaniya Quran Academy',
-    subtitle: 'Academy Website',
-    description: 'Developed a responsive academy website with structured pages, contact forms, and dynamic website sections for visitor engagement.',
-    tech: [
-      { icon: SiHtml5, name: 'HTML' },
-      { icon: SiCss3, name: 'CSS' },
-      { icon: SiJavascript, name: 'JavaScript' },
-      { icon: SiPhp, name: 'PHP' },
-      { icon: SiBootstrap, name: 'Bootstrap' },
-    ],
-    features: ['Responsive pages', 'Contact forms', 'Dynamic sections'],
-    color: 'from-blue-500 to-cyan-600',
+    category: 'Educational',
+    description: 'Developed a responsive educational website using HTML, CSS, JavaScript, PHP, and Bootstrap.',
+    stack: ['HTML', 'CSS', 'JavaScript', 'PHP', 'Bootstrap'],
+    liveUrl: 'https://www.afaniyahquranacademy.com/',
+    githubUrl: '',
+    accent: 'from-blue-500 to-cyan-600',
   },
   {
     title: 'Umair Trader Website',
-    subtitle: 'Business Website',
-    description: 'Built a professional business website with responsive layouts, clean React components, and optimized frontend performance.',
-    tech: [
-      { icon: SiReact, name: 'React.js' },
-      { icon: SiTailwindcss, name: 'Tailwind CSS' },
-      { icon: SiJavascript, name: 'JavaScript' },
-    ],
-    features: ['Responsive layouts', 'Frontend optimization', 'Modern UI'],
-    color: 'from-emerald-500 to-teal-700',
+    category: 'Web',
+    description: 'Built a responsive business website using React.js, Tailwind CSS, and JavaScript.',
+    stack: ['React.js', 'Tailwind CSS', 'JavaScript'],
+    liveUrl: 'https://umairtrader.netlify.app/',
+    githubUrl: '',
+    accent: 'from-emerald-500 to-teal-700',
   },
   {
-    title: 'Inventory Store Management System',
-    subtitle: 'Management System',
-    description: 'Developed an inventory management system with product tracking, admin features, and database-backed store operations.',
-    tech: [
-      { icon: SiPhp, name: 'PHP' },
-      { icon: SiMysql, name: 'MySQL' },
-      { icon: SiHtml5, name: 'HTML' },
-      { icon: SiCss3, name: 'CSS' },
-      { icon: SiJavascript, name: 'JavaScript' },
-    ],
-    features: ['Inventory tracking', 'Product management', 'Admin features'],
-    color: 'from-violet-500 to-fuchsia-600',
-  },
-  {
-    title: 'School Management System',
-    subtitle: 'Full Stack Web App',
-    description: 'Built a school management platform with student management, attendance features, and a secure admin dashboard.',
-    tech: [
-      { icon: SiReact, name: 'React.js' },
-      { icon: SiNodedotjs, name: 'Node.js' },
-      { icon: SiNodedotjs, name: 'Express.js' },
-      { icon: SiMongodb, name: 'MongoDB' },
-    ],
-    features: ['Student management', 'Attendance system', 'Admin dashboard'],
-    color: 'from-orange-500 to-rose-600',
+    title: 'Notes App',
+    category: 'Mobile',
+    description: 'Developed a Flutter-based notes application with local storage for creating, editing, and managing notes.',
+    stack: ['Flutter', 'Dart', 'Local Storage'],
+    liveUrl: '',
+    githubUrl: '',
+    accent: 'from-indigo-500 to-violet-600',
   },
 ];
 
 const Projects = () => {
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filteredProjects =
+    activeCategory === 'All' ? projects : projects.filter((project) => project.category === activeCategory);
+
   return (
     <section id="projects" className="section-padding relative">
       <div className="section-container">
         <SectionHeading
-          title="Real Projects"
-          subtitle="Client-ready web and mobile projects that show full stack development, Flutter app development, API integration, and product-focused execution."
+          title="Projects"
+          subtitle="A practical portfolio of web apps, mobile apps, business systems, and educational platforms"
         />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-5 mb-10 lg:mb-12">
-          {projects.map((project, index) => (
+        <div className="flex flex-wrap gap-3 justify-center mb-8">
+          {categories.map((category) => (
+            <button
+              key={category}
+              type="button"
+              onClick={() => setActiveCategory(category)}
+              className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                activeCategory === category
+                  ? 'bg-primary text-primary-foreground shadow-glow'
+                  : 'border border-border bg-background/40 text-muted-foreground hover:border-primary/30 hover:text-foreground'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-6 mb-10 lg:mb-12">
+          {filteredProjects.map((project, index) => (
             <motion.article
               key={project.title}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
-              transition={{ delay: index * 0.12 }}
+              transition={{ delay: index * 0.08 }}
               whileHover={{ y: -8 }}
               className="group h-full"
             >
               <div className="surface-card overflow-hidden h-full flex flex-col hover:glow-effect transition-all duration-500">
-                <div className={`relative min-h-32 bg-gradient-to-br ${project.color} p-4 text-white overflow-hidden`}>
+                <div className={`relative min-h-28 bg-gradient-to-br ${project.accent} p-4 text-white overflow-hidden`}>
                   <div className="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-white/10" />
-                  <div className="absolute right-4 bottom-4 flex gap-2 opacity-20">
-                    {project.tech.map((tech) => (
-                      <tech.icon key={tech.name} className="w-9 h-9" />
-                    ))}
-                  </div>
-                  <p className="text-white/80 text-sm font-medium mb-2">{project.subtitle}</p>
-                  <h3 className="text-lg font-display font-bold leading-tight max-w-sm">{project.title}</h3>
+                  <span className="relative inline-block rounded-full bg-white/15 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide">
+                    {project.category}
+                  </span>
+                  <h3 className="relative mt-4 text-xl font-display font-bold leading-tight">{project.title}</h3>
                 </div>
 
                 <div className="p-4 flex-1 flex flex-col">
-                  <p className="text-muted-foreground text-xs leading-relaxed mb-4 flex-1">{project.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
 
-                  <div className="grid gap-2 mb-4">
-                    {project.features.map((feature) => (
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.stack.map((tag) => (
                       <span
-                        key={feature}
-                        className="flex items-center gap-2 text-xs font-medium bg-primary/10 text-primary rounded-md px-3 py-2"
+                        key={tag}
+                        className="rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-medium text-primary"
                       >
-                        <FiCheck className="w-3.5 h-3.5" />
-                        {feature}
+                        {tag}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex flex-col gap-3 pt-4 border-t border-border">
-                    <div className="flex items-center gap-2">
-                      {project.tech.map((tech) => (
-                        <motion.div
-                          key={tech.name}
-                          whileHover={{ scale: 1.2, y: -3 }}
-                          className="text-muted-foreground hover:text-foreground transition-colors"
-                          title={tech.name}
-                        >
-                          <tech.icon className="w-5 h-5" />
-                        </motion.div>
-                      ))}
-                    </div>
-                    <span className="text-[11px] text-muted-foreground leading-snug">{project.tech.map((tech) => tech.name).join(' / ')}</span>
+                  <div className="flex items-center gap-2 pt-4 border-t border-border">
+                    {project.liveUrl ? (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                      >
+                        <FiExternalLink className="w-4 h-4" />
+                        Live Demo
+                      </a>
+                    ) : (
+                      <span className="text-sm font-medium text-muted-foreground">Live demo unavailable</span>
+                    )}
+                    {project.githubUrl ? (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-auto inline-flex items-center gap-2 text-sm font-semibold text-foreground"
+                      >
+                        <FiGithub className="w-4 h-4" />
+                        GitHub
+                      </a>
+                    ) : null}
                   </div>
                 </div>
               </div>

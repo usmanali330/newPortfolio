@@ -1,17 +1,18 @@
 import { motion } from 'framer-motion';
 import SectionHeading from '../SectionHeading';
-import { FiUser, FiMapPin, FiPhone, FiMail, FiGlobe, FiCalendar, FiHeart, FiBriefcase } from 'react-icons/fi';
+import { FiUser, FiMapPin, FiPhone, FiMail, FiGlobe, FiBriefcase, FiExternalLink, FiCode, FiBookOpen } from 'react-icons/fi';
+import { FaLinkedin, FaGithub, FaFigma } from 'react-icons/fa';
 import profileImage from '@/assets/profile-2.jpg';
 
 const personalInfo = [
   { icon: FiUser, label: 'Name', value: 'Usman Ali' },
-  { icon: FiCalendar, label: 'Date of Birth', value: '5 April 2003' },
-  { icon: FiMapPin, label: 'Location', value: 'Sardheri, Charsadda, KPK' },
+  { icon: FiMapPin, label: 'Location', value: 'Sardheri, Charsadda, Pakistan' },
   { icon: FiPhone, label: 'Phone', value: '0370-5040330' },
-  { icon: FiMail, label: 'Email', value: 'usmanalishah\n5040@gmail.com' },
-  { icon: FiGlobe, label: 'Languages', value: 'Urdu, Pashto, English' },
-  { icon: FiHeart, label: 'Interests', value: 'MERN, Flutter, UI/UX' },
-  { icon: FiBriefcase, label: 'Experience', value: '3+ Years' },
+  { icon: FiMail, label: 'Email', value: 'usmanalishah5040@gmail.com' },
+  { icon: FiExternalLink, label: 'Portfolio', value: 'usmanalideveloper.netlify.app' },
+  { icon: FaLinkedin, label: 'LinkedIn', value: 'usman-ali-software-engineer' },
+  { icon: FaGithub, label: 'GitHub', value: 'usmanali330' },
+  { icon: FiBriefcase, label: 'Experience', value: '4+ Years' },
 ];
 
 const containerVariants = {
@@ -35,11 +36,10 @@ const About = () => {
       <div className="section-container">
         <SectionHeading 
           title="About Me" 
-          subtitle="Full Stack Web & Flutter App Developer focused on reliable client work"
+          subtitle="Full Stack Web & Flutter App Developer with a practical, business-first approach"
         />
         
         <div className="grid lg:grid-cols-3 gap-12 items-center">
-          {/* Profile Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -66,7 +66,6 @@ const About = () => {
             </div>
           </motion.div>
           
-          {/* About Text */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -79,18 +78,32 @@ const About = () => {
                 Who I Am
               </h3>
               <p className="text-muted-foreground mb-4 leading-relaxed text-sm sm:text-base">
-                I am Usman Ali, a Full Stack Web & Flutter App Developer with 3+ years of hands-on experience building responsive websites, MERN stack applications, dashboards, APIs, and mobile apps for real business needs.
+                Full Stack Web & Flutter App Developer with 4+ years of hands-on experience building responsive websites, full-stack web applications, mobile apps, and custom business management systems.
               </p>
               <p className="text-muted-foreground mb-4 leading-relaxed text-sm sm:text-base">
-                I work with React.js, Node.js, Express.js, MongoDB, Tailwind CSS, Flutter, Firebase, and REST APIs. My focus is on clean UI, secure functionality, fast delivery, and smooth communication for Fiverr buyers, Upwork clients, startup founders, and companies hiring developers.
+                Skilled in React.js, JavaScript, Flutter, Dart, PHP, Node.js, Express.js, Tailwind CSS, MongoDB, MySQL, Firebase, and REST API integration. I develop solutions for education, retail, inventory, travel, and business operations, along with freelance projects through Fiverr and Upwork.
               </p>
-              <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                My goal is to help clients launch scalable digital products that are easy to use, easy to maintain, and ready to grow. I can support a project from planning and development to deployment, bug fixing, and long-term improvements.
-              </p>
+              <div className="grid sm:grid-cols-2 gap-3 mt-6">
+                <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <FiCode className="w-4 h-4 text-primary" />
+                  Full Stack Development
+                </div>
+                <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <FiBookOpen className="w-4 h-4 text-primary" />
+                  Flutter & Mobile Apps
+                </div>
+                <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <FiBriefcase className="w-4 h-4 text-primary" />
+                  Business Software
+                </div>
+                <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <FaFigma className="w-4 h-4 text-primary" />
+                  Freelancing & Team Leadership
+                </div>
+              </div>
             </div>
           </motion.div>
           
-          {/* Personal Info Grid */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -98,7 +111,7 @@ const About = () => {
             viewport={{ once: true, margin: "-100px" }}
             className="lg:col-span-3 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4"
           >
-            {personalInfo.map((info, index) => (
+            {personalInfo.map((info) => (
               <motion.div
                 key={info.label}
                 variants={itemVariants}

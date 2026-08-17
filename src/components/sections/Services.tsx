@@ -8,21 +8,21 @@ const services = [
     icon: SiFlutter,
     title: 'Flutter App Development',
     description: 'Modern Android and cross-platform apps with clean UI, Firebase, APIs, optimization, and ongoing support.',
-    items: ['Android Apps', 'Cross Platform Apps', 'Firebase Integration', 'API Integration', 'Custom UI Design', 'Bug Fixing'],
+    items: ['Android Applications', 'Cross-Platform Apps', 'Firebase Integration', 'REST API Integration', 'App Performance Optimization', 'App Maintenance & Support'],
     accent: 'from-cyan-500 to-blue-600',
   },
   {
     icon: SiReact,
-    title: 'Full Stack Web Development',
-    description: 'Scalable MERN stack products for founders and businesses that need secure, responsive, production-ready apps.',
-    items: ['MERN Stack Apps', 'Admin Dashboards', 'Authentication Systems', 'REST APIs', 'Responsive Websites', 'Backend Development'],
+    title: 'Web Development',
+    description: 'Custom business websites, dashboards, and full-stack MERN applications built for clients, startups, and businesses.',
+    items: ['Custom Business Websites', 'Full Stack MERN Applications', 'Admin Dashboards', 'E-Commerce Applications', 'REST API Development', 'PHP & MySQL Applications'],
     accent: 'from-emerald-500 to-teal-600',
   },
   {
     icon: FiTool,
-    title: 'Freelance Project Services',
-    description: 'Reliable project delivery for Fiverr and Upwork clients, from fixes and maintenance to full application builds.',
-    items: ['Fiverr Client Work', 'Upwork Client Work', 'Long-term Support', 'Maintenance Services', 'Deployment Assistance', 'UI/UX Improvements'],
+    title: 'Custom Software Solutions',
+    description: 'Reliable digital systems for education, retail, inventory, logistics, and business operations.',
+    items: ['School Management Systems', 'Inventory & Store Management', 'Jewelry Management Systems', 'Travel & Tour Management', 'Mobile Shop Management', 'Rental Management Systems'],
     accent: 'from-violet-500 to-fuchsia-600',
   },
 ];
@@ -41,8 +41,8 @@ const Services = () => {
     <section id="services" className="section-padding relative">
       <div className="section-container">
         <SectionHeading
-          title="Client-Focused Services"
-          subtitle="Premium web and mobile development services for Fiverr buyers, Upwork clients, startups, business owners, and teams hiring developers."
+          title="Freelance Services"
+          subtitle="Available for freelance projects through Fiverr and Upwork, helping startups, businesses, educational institutions, and entrepreneurs build reliable web applications, mobile apps, and custom business solutions."
         />
 
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6 mb-10 lg:mb-12">
@@ -61,7 +61,7 @@ const Services = () => {
               </div>
               <h3 className="text-lg sm:text-xl font-display font-bold text-foreground mb-3">{service.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">{service.description}</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2">
+              <div className="grid grid-cols-1 gap-2">
                 {service.items.map((item) => (
                   <div key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
@@ -82,16 +82,13 @@ const Services = () => {
           <div>
             <h3 className="font-display text-2xl font-bold gradient-text mb-2">Need a complete app or a fast fix?</h3>
             <p className="text-muted-foreground max-w-3xl">
-              I help clients plan, build, improve, deploy, and maintain web and mobile products with clear communication and practical delivery.
+              I am actively available for freelance, remote, and full-time opportunities. Whether you need a business website, web application, mobile app, management system, or custom software solution, I am ready to help.
             </p>
           </div>
-          <a
-            href="#contact"
-            className="btn-primary whitespace-nowrap"
-          >
-            Start a Project
-            <FiArrowRight className="w-5 h-5" />
-          </a>
+          <div className="flex flex-wrap gap-3">
+            <a href="#contact" className="btn-primary whitespace-nowrap">Start a Project</a>
+            <a href="#projects" className="btn-secondary whitespace-nowrap">View Projects</a>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3 mt-6">
